@@ -418,6 +418,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneNames:
   - GameScene
+  - ModScene
+  - ScoreScene
+  - QuitGameScene
 --- !u!1 &831329914
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,24 +9,24 @@ public class SwitchScenes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        switchScene();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            switchScene();
+        }
     }
 
     void switchScene()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        int menuNum = GetComponent<MoveMenu>().menuNum;
+        if (menuNum < sceneNames.Length)
         {
-            int menuNum = GetComponent<MoveMenu>().menuNum;
-            if (menuNum < sceneNames.Length)
-            {
-                SceneManager.LoadScene(sceneNames[menuNum]);
-            }
+            SceneManager.LoadScene(sceneNames[menuNum]);
         }
     }
 }

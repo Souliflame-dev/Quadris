@@ -67,8 +67,7 @@ public class ActionMino : MonoBehaviour
         {
             transform.RotateAround(transform.TransformPoint(rotatePoint), new Vector3(0, 0, 1), -90);
 
-            int minoPosition;
-            minoPosition = (transform.position.x < 5) ? 1 : -1;
+            int minoPosition = (transform.position.x < 5) ? 1 : -1;
             if (!isValidMove())
             {
                 bool isValid = false;
@@ -84,6 +83,20 @@ public class ActionMino : MonoBehaviour
                     else
                     {
                         transform.position -= new Vector3(i * minoPosition, 0, 0);
+                    }
+                }
+
+                for (int i = 1; i <=minoLength / 2; ++i)
+                {
+                    transform.position += new Vector3(0, i * -1, 0);
+                    if (isValidMove())
+                    {
+                        isValid = true;
+                        break;
+                    }
+                    else
+                    {
+                        transform.position -= new Vector3(0, i, 0);
                     }
                 }
 

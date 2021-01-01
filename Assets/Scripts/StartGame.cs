@@ -26,6 +26,7 @@ public class StartGame : MonoBehaviour
         FindObjectOfType<SpawnMino>().spawnPreviewMino();
         FindObjectOfType<SpawnMino>().moveMinoToSpawnPoint();
         FindObjectOfType<SpawnMino>().spawnPreviewMino();
+        FindObjectOfType<GameLevel>().checkLevelThreshold();
         enabled = false;
     }
 }

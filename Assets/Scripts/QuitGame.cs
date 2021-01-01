@@ -7,7 +7,16 @@ public class QuitGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Time.time > 60.0f)
+
+    }
+
+    private void Update()
+    {
+        if (Time.time > 5.0f)
+        {
+            Application.Quit();
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }

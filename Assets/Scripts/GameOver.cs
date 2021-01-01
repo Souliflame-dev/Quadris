@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
+    public GameObject gameoverText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameoverText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -15,4 +16,6 @@ public class GameOver : MonoBehaviour
     {
         
     }
+
+
 }

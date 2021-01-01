@@ -43,7 +43,7 @@ public class ActionMino : MonoBehaviour
             }
         }
 
-        if (Time.time - previousTime > fallTime || Input.GetKeyDown(KeyCode.DownArrow))
+        if (Time.time - previousTime > fallTime / FindObjectOfType<GameLevel>().level || Input.GetKeyDown(KeyCode.DownArrow))
         {
             transform.position += new Vector3(0, -1, 0);
             if (!isValidMove())
@@ -86,7 +86,7 @@ public class ActionMino : MonoBehaviour
                     }
                 }
 
-                for (int i = 1; i <=minoLength / 2; ++i)
+                for (int i = 1; i <= minoLength / 2; ++i)
                 {
                     transform.position += new Vector3(0, i * -1, 0);
                     if (isValidMove())
@@ -96,7 +96,7 @@ public class ActionMino : MonoBehaviour
                     }
                     else
                     {
-                        transform.position -= new Vector3(0, i, 0);
+                        transform.position += new Vector3(0, i, 0);
                     }
                 }
 
@@ -107,7 +107,7 @@ public class ActionMino : MonoBehaviour
             }
         }
     }
-    bool isValidMove()
+    public bool isValidMove()
     {
         foreach (Transform children in transform)
         {
@@ -133,6 +133,8 @@ public class ActionMino : MonoBehaviour
         addToGrid();
         checkForLines();
         this.enabled = false;
+        FindObjectOfType<GameLevel>().movesCount++;
+        FindObjectOfType<GameLevel>().checkLevelThreshold();
         FindObjectOfType<SpawnMino>().moveMinoToSpawnPoint();
         FindObjectOfType<SpawnMino>().spawnPreviewMino();
     }

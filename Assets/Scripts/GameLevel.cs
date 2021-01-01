@@ -2,17 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+public class GameLevel : MonoBehaviour
 {
+    const int MAX_LEVEL = 20;
+    public int level = 0;
+    public int movesCount = 0;
+    public int[] movesCountThreshold = new int[MAX_LEVEL];
+    public int[] scoreThreshold = new int[MAX_LEVEL];
+
+    public void checkLevelThreshold()
+    {
+        if (level == 20)
+        {
+            return;
+        }
+
+        if (isLargerValue(movesCount, movesCountThreshold[level]) || isLargerValue(FindObjectOfType<Scoring>().score, scoreThreshold[level]))
+        {
+            level++;
+            gameObject.GetComponent<UnityEngine.UI.Text>().text = $"LEVEL {level}";
+        }
+    }
+
+    private bool isLargerValue(int currentValue, int nextValue)
+    {
+        if (currentValue >= nextValue)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
+
 }

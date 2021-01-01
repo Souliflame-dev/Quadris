@@ -31,6 +31,10 @@ public class SpawnMino : MonoBehaviour
         mino.transform.position = spawnPoint.transform.position;
         mino.GetComponent<ActionMino>().enabled = true;
         mino.SetParent(spawnPoint.transform);
+        if (!mino.GetComponent<ActionMino>().isValidMove())
+        {
+            //game over 스크립트로 간다
+        }
     }
     void bagMino()
     {

@@ -418,7 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneNames:
   - GameScene
-  - ModScene
+  - ModeScene
   - ScoreScene
   - QuitGameScene
 --- !u!1 &831329914
@@ -738,7 +738,7 @@ GameObject:
   - component: {fileID: 2075159016}
   - component: {fileID: 2075159015}
   m_Layer: 5
-  m_Name: Text_Mod
+  m_Name: Text_Mode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -795,7 +795,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Mod
+  m_Text: Mode
 --- !u!222 &2075159016
 CanvasRenderer:
   m_ObjectHideFlags: 0

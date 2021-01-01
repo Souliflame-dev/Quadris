@@ -20,21 +20,26 @@ public class SpawnMino : MonoBehaviour
         
     }
 
-    public void spawnPreviewMino()
+    public void SpawnPreviewMino()
     {
         GameObject mino = Instantiate(minos[Random.Range(0, minos.Length)], previewPoint.transform.position, Quaternion.identity, previewPoint.transform);
         mino.GetComponent<ActionMino>().enabled = false;
     }
-    public void moveMinoToSpawnPoint()
+    public void MoveMinoToSpawnPoint()
     {
         Transform mino = previewPoint.transform.GetChild(0);
         mino.transform.position = spawnPoint.transform.position;
+
+        if (!mino.GetComponent<ActionMino>().IsValidMove())
+        {
+            FindObjectOfType<GameOver>().ShowGameOverAndSwitchScene();
+            return;
+        }
+
         mino.GetComponent<ActionMino>().enabled = true;
         mino.SetParent(spawnPoint.transform);
-        if (!mino.GetComponent<ActionMino>().isValidMove())
-        {
-            //game over 스크립트로 간다
-        }
+
+
     }
     void bagMino()
     {

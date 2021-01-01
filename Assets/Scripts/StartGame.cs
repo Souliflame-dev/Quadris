@@ -23,10 +23,10 @@ public class StartGame : MonoBehaviour
     void startGame()
     {
         startText.SetActive(false);
-        FindObjectOfType<SpawnMino>().spawnPreviewMino();
-        FindObjectOfType<SpawnMino>().moveMinoToSpawnPoint();
-        FindObjectOfType<SpawnMino>().spawnPreviewMino();
-        FindObjectOfType<GameLevel>().checkLevelThreshold();
+        FindObjectOfType<SpawnMino>().SpawnPreviewMino();
+        FindObjectOfType<SpawnMino>().MoveMinoToSpawnPoint();
+        FindObjectOfType<SpawnMino>().SpawnPreviewMino();
+        FindObjectOfType<GameLevel>().CheckLevelThreshold();
         enabled = false;
     }
 }

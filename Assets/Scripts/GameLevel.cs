@@ -10,7 +10,7 @@ public class GameLevel : MonoBehaviour
     public int[] movesCountThreshold = new int[MAX_LEVEL];
     public int[] scoreThreshold = new int[MAX_LEVEL];
 
-    public void checkLevelThreshold()
+    public void CheckLevelThreshold()
     {
         if (level == 20)
         {

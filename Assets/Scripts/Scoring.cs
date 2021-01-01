@@ -7,7 +7,7 @@ public class Scoring : MonoBehaviour
     public int score = 0;
     private int baseScore = 10;
 
-    public void updateScore(int scoringRowCount)
+    public void UpdateScore(int scoringRowCount)
     {
         int gettingScore = 0;
 

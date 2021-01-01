@@ -142,7 +142,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
-    Assets/Scenes/ModScene.unity:
+    Assets/Scenes/ModeScene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -260,7 +260,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: 7d7b9a65ee86b16d2cc260a41f31c13f
+      Hash: a057c07004a072b742e3718bcbdf3921
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameOver
@@ -796,7 +796,7 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/MaintitleScene.unity
   - Assets/Scenes/GameScene.unity
-  - Assets/Scenes/ModScene.unity
+  - Assets/Scenes/ModeScene.unity
   - Assets/Scenes/ScoreScene.unity
   - Assets/Scenes/QuitGameScene.unity
   playerPath: F:/Codes/Unity/Quadris/Build/Quadris.exe

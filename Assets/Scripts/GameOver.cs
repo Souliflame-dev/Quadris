@@ -17,8 +17,10 @@ public class GameOver : MonoBehaviour
         }
     }
 
-    public void ShowGameOverAndSwitchScene()
+    public void ProcessGameover()
     {
+        int score = FindObjectOfType<Scoring>().score;
+        FindObjectOfType<HandleDatafile>().SaveScoreData(score);
         gameoverText.SetActive(true);
     }
 

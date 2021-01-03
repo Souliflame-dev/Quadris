@@ -8,18 +8,6 @@ public class SpawnMino : MonoBehaviour
     public GameObject previewPoint;
     public GameObject spawnPoint;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SpawnPreviewMino()
     {
         GameObject mino = Instantiate(minos[Random.Range(0, minos.Length)], previewPoint.transform.position, Quaternion.identity, previewPoint.transform);
@@ -32,7 +20,7 @@ public class SpawnMino : MonoBehaviour
 
         if (!mino.GetComponent<ActionMino>().IsValidMove())
         {
-            FindObjectOfType<GameOver>().ShowGameOverAndSwitchScene();
+            FindObjectOfType<GameOver>().ProcessGameover();
             return;
         }
 

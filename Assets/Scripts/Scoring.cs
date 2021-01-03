@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Scoring : MonoBehaviour
 {
-    public int score = 0;
+    public int score { get; private set; } = 0;
     private int baseScore = 10;
 
     public void UpdateScore(int scoringRowCount)

@@ -26,9 +26,8 @@ public class SpawnMino : MonoBehaviour
 
         mino.GetComponent<ActionMino>().enabled = true;
         mino.SetParent(spawnPoint.transform);
-
-
     }
+
     void bagMino()
     {
 

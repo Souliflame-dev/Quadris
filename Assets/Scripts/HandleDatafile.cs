@@ -74,6 +74,8 @@ public class HandleDatafile : MonoBehaviour
             source = sr.ReadLine();
         }
 
+        sr.Close();
+
         return transStringArrayToIntArray(stringScore);
     }
 

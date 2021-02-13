@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\SpawnMino.cs" />
     <Compile Include="Assets\Scripts\StartGame.cs" />
     <Compile Include="Assets\Scripts\SwitchScenes.cs" />
+    <None Include="Assets\Datafile\score.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

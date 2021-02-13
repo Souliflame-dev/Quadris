@@ -15,7 +15,6 @@ public class SwitchScenes : MonoBehaviour
             switchScene();
         }
     }
-
     void switchScene()
     {
         int menuNum = GetComponent<MoveMenu>().menuNum;

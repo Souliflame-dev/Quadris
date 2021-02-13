@@ -10,6 +10,8 @@ public class GameLevel : MonoBehaviour
     public int[] movesCountThreshold = new int[MAX_LEVEL];
     public int[] scoreThreshold = new int[MAX_LEVEL];
 
+    public GameObject levelText;
+
     public void CheckLevelThreshold()
     {
         if (level == 20)
@@ -20,7 +22,7 @@ public class GameLevel : MonoBehaviour
         if (isLargerValue(movesCount, movesCountThreshold[level]) || isLargerValue(FindObjectOfType<Scoring>().score, scoreThreshold[level]))
         {
             level++;
-            gameObject.GetComponent<UnityEngine.UI.Text>().text = $"LEVEL {level}";
+            levelText.GetComponent<UnityEngine.UI.Text>().text = $"LEVEL {level}";
         }
     }
 

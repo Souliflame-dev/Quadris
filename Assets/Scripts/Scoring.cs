@@ -6,6 +6,7 @@ public class Scoring : MonoBehaviour
 {
     public int score { get; private set; } = 0;
     private int baseScore = 10;
+    public GameObject scoreText;
 
     public void UpdateScore(int scoringRowCount)
     {
@@ -17,6 +18,6 @@ public class Scoring : MonoBehaviour
         }
 
         score += gettingScore;
-        gameObject.GetComponent<UnityEngine.UI.Text>().text = score.ToString();
+        scoreText.GetComponent<UnityEngine.UI.Text>().text = score.ToString();
     }
 }

@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class HandleDatafile : MonoBehaviour
 {
+    // HandleScoreFile로 대체
+    /*
     private string path = "Assets/Datafile/score.txt";
     private const char SPLIT_CHAR = ',';
     private const int SCORE_COUNT = 10;
@@ -58,30 +60,56 @@ public class HandleDatafile : MonoBehaviour
     public int[] LoadScoreData()
     {
         checkValidPath();
-        StringReader sr = new StringReader(path);
-        string source = sr.ReadLine();
-
         string[] stringScore = null;
 
-        while (source != null)
+        try
         {
-            stringScore = source.Split(SPLIT_CHAR);
-            if (stringScore.Length == 0)
+            using (StreamReader sr = new StreamReader(path))
             {
-                sr.Close();
+                string source;
+                if ((source = sr.ReadLine()) != null)
+                {
+                    stringScore = source.Split(SPLIT_CHAR);
+                }
                 return transStringArrayToIntArray(stringScore);
             }
-            source = sr.ReadLine();
         }
-
-        sr.Close();
+        catch (Exception e)
+        {
+            Debug.LogError("LoadScoreData Error");
+            Debug.LogError(e.Message);
+        }
 
         return transStringArrayToIntArray(stringScore);
     }
 
+    private bool checkValidData(string[] dataArray)
+    {
+        if (dataArray == null || dataArray.Length != SCORE_COUNT)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < SCORE_COUNT; ++i)
+        {
+            int temp;
+            if(!Int32.TryParse(dataArray[i], out temp))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     private int[] transStringArrayToIntArray(string[] stringScore)
     {
-        int[] intScore = new int[stringScore.Length];
+        if (stringScore == null || stringScore.Length != SCORE_COUNT)
+        {
+            return null;
+        }
+
+        int[] intScore = new int[SCORE_COUNT];
 
         for (int i = 0; i < intScore.Length; ++i)
         {
@@ -95,12 +123,12 @@ public class HandleDatafile : MonoBehaviour
     {
         if (!File.Exists(path))
         {
-            Debug.LogError("score txt file doesn't exist");
-            createSavefile();
+            Debug.LogError("Score textfile doesn't exists.");
+            createScorefile();
         }
     }
 
-    private void createSavefile()
+    private void createScorefile()
     {
         File.Create(path);
         StreamWriter writer = new StreamWriter(path, true);
@@ -119,6 +147,5 @@ public class HandleDatafile : MonoBehaviour
 
         Debug.LogError($"create savefile to {path}");
     }
-
-
+    */
 }

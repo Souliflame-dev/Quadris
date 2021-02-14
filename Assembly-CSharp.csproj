@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\GameLevel.cs" />
     <Compile Include="Assets\Scripts\GameOver.cs" />
     <Compile Include="Assets\Scripts\HandleDatafile.cs" />
+    <Compile Include="Assets\Scripts\HandleScorefile.cs" />
     <Compile Include="Assets\Scripts\MoveMenu.cs" />
     <Compile Include="Assets\Scripts\QuitGame.cs" />
     <Compile Include="Assets\Scripts\Scoring.cs" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 
 public class HandleScorefile : MonoBehaviour
 {
@@ -9,45 +10,111 @@ public class HandleScorefile : MonoBehaviour
     private const char SPLIT_CHAR = ',';
     private const int SCORE_COUNT = 10;
 
+    public void SaveScoreData(int score)
+    {
+        int[] scoreData = LoadScoreData();
+        bool isChanged = false;
+
+        int temp;
+        for (int i = 0; i < scoreData.Length; ++i)
+        {
+            if (scoreData[i] < score)
+            {
+                temp = scoreData[i];
+                scoreData[i] = score;
+                score = temp;
+                isChanged = true;
+            }
+        }
+
+        if (isChanged)
+        {
+            using (StreamWriter sw = new StreamWriter(PATH, false))
+            {
+                sw.Flush();
+                for (int i = 0; i < scoreData.Length; ++i)
+                {
+                    sw.Write(scoreData[i].ToString());
+                    if (i == scoreData.Length - 1)
+                    {
+                        break;
+                    }
+                    sw.Write(SPLIT_CHAR);
+                }
+                sw.Close();
+            }
+        }
+    }
+
     public int[] LoadScoreData()
     {
-        return null;
+        int[] scoreData = new int[SCORE_COUNT];
+
+        if (!VerifyValidFile(scoreData))
+        {
+            Debug.Log($"{PATH}: Has wrong data, create new");
+            createScorefile();
+            VerifyValidFile(scoreData);
+        }
+
+        Debug.Log("SUCCESS: Load score data");
+        return scoreData;
     }
 
-    public void CheckValidFile()
+    public bool VerifyValidFile(int[] scoreData)
     {
-        //경로를 체크해서 파일이 없으면 새로운 파일을 만든다.
         if (!File.Exists(PATH))
         {
-            Debug.Log($"{PATH}: Score textfile doesn't exists.");
-            createScorefile(false);
+            return false;
         }
 
-        //체크해서 파일이 있는데 데이터를 검증해서 검증값이 이상하면 새로 파일을 만든다.
-        //checkValidData();
-        Debug.Log($"{PATH}: Score textfile exists.");
-        return;
+        string[] source = File.ReadAllText(PATH).Split(SPLIT_CHAR);
+        if (source == null || source.Length != SCORE_COUNT)
+        {
+            return false;
+        }
+
+        int temp = 0;
+        try
+        {
+            for (int i = SCORE_COUNT - 1; i >= 0; --i)
+            {
+                int score = Int32.Parse(source[i]);
+                if (score < temp)
+                {
+                    Debug.LogError($"{PATH}: Has wrong data");
+                    File.Delete(PATH);
+                    return false;
+                }
+                scoreData[i] = score;
+                temp = score;
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e.Message);
+            Debug.LogError($"{PATH}: Has wrong data");
+            File.Delete(PATH);
+            return false;
+        }
+
+        return true;
     }
 
-    private void createScorefile(bool hasWrongData)
+    private void createScorefile()
     {
-        if (hasWrongData)
-        {
-            Debug.Log($"{PATH}: Wrong data found and delete file");
-            File.Delete(PATH);
-        }
-
         using (StreamWriter sw = File.CreateText(PATH))
         {
             for (int i = SCORE_COUNT; i >= 1; --i)
             {
-                sw.Write($"{1000 * i}");
+                sw.Write($"{100 * i}");
                 if (i == 1)
                 {
                     break;
                 }
                 sw.Write($"{SPLIT_CHAR}");
             }
+            sw.Close();
         }
         Debug.Log($"{PATH}: Create new scorefile");
     }

@@ -20,7 +20,7 @@ public class GameOver : MonoBehaviour
     public void ProcessGameover()
     {
         int score = FindObjectOfType<Scoring>().score;
-        FindObjectOfType<HandleScorefile>().CheckValidFile();
+        FindObjectOfType<HandleScorefile>().SaveScoreData(score);
         gameoverText.SetActive(true);
     }
 

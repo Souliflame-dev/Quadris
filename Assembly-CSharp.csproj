@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\HandleScorefile.cs" />
     <Compile Include="Assets\Scripts\MoveMenu.cs" />
     <Compile Include="Assets\Scripts\QuitGame.cs" />
+    <Compile Include="Assets\Scripts\ScoreUI.cs" />
     <Compile Include="Assets\Scripts\Scoring.cs" />
     <Compile Include="Assets\Scripts\SpawnMino.cs" />
     <Compile Include="Assets\Scripts\StartGame.cs" />

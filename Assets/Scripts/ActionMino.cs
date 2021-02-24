@@ -9,8 +9,8 @@ public class ActionMino : MonoBehaviour
     private static Transform[,] GRID = new Transform[GRID_WIDTH, GRID_HEIGHT];
 
     public Vector3 rotatePoint;
-    public float fallTime = 10;
     public int minoLength = 4;
+    public float[] fallTimes = new float[20];
 
     private float previousTime = 0;
 
@@ -39,7 +39,8 @@ public class ActionMino : MonoBehaviour
             }
         }
 
-        if (Time.time - previousTime > fallTime / FindObjectOfType<GameLevel>().level || Input.GetKeyDown(KeyCode.DownArrow))
+        int level = FindObjectOfType<GameLevel>().level;
+        if (Time.time - previousTime > fallTimes[level] / FindObjectOfType<GameLevel>().level || Input.GetKeyDown(KeyCode.DownArrow))
         {
             transform.position += new Vector3(0, -1, 0);
             if (!IsValidMove())

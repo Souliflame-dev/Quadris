@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameLevel : MonoBehaviour
 {
-    const int MAX_LEVEL = 20;
+    public const int MAX_LEVEL = 20;
+
     public int level = 0;
     public int movesCount = 0;
     public int[] movesCountThreshold = new int[MAX_LEVEL];
@@ -24,6 +25,11 @@ public class GameLevel : MonoBehaviour
             level++;
             levelText.GetComponent<UnityEngine.UI.Text>().text = $"LEVEL {level}";
         }
+    }
+
+    public int GetMaxLevel()
+    {
+        return MAX_LEVEL;
     }
 
     private bool isLargerValue(int currentValue, int nextValue)

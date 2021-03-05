@@ -4,14 +4,15 @@ using UnityEngine.UI;
 
 public class MoveMenu : MonoBehaviour
 {
+    public int menuNum { get; private set; } = 0;
 
     public int selectMenuSize = 50;
     public int baseMenuSize = 30;
-    public int menuNum { get; private set; } = 0;
+
     public GameObject[] menu;
     public string[] sceneNames;
 
-    private void Awake()
+    void Awake()
     {
         if(menu.Length > 0)
         {

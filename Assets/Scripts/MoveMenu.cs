@@ -4,15 +4,38 @@ using UnityEngine.UI;
 
 public class MoveMenu : MonoBehaviour
 {
-    public GameObject[] Menu = new GameObject[1];
+
     public int selectMenuSize = 50;
     public int baseMenuSize = 30;
     public int menuNum { get; private set; } = 0;
+    public GameObject[] menu;
+    public string[] sceneNames;
 
+    private void Awake()
+    {
+        if(menu.Length > 0)
+        {
+            menu[menuNum].GetComponent<Text>().fontSize = selectMenuSize;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        moveMenu();
+        if (menu.Length > 0)
+        {
+            moveMenu();
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+            {
+                SceneManager.LoadScene(sceneNames[menuNum]);
+            }
+        }
+        else if (menu.Length == 0)
+        {
+            if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("MaintitleScene");
+            }
+        }
     }
 
     void moveMenu()
@@ -22,7 +45,7 @@ public class MoveMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             menuNum++;
-            if (menuNum >= Menu.Length)
+            if (menuNum >= menu.Length)
             {
                 menuNum = menuNum & 0;
             }
@@ -32,14 +55,14 @@ public class MoveMenu : MonoBehaviour
             menuNum--;
             if (menuNum < 0)
             {
-                menuNum = Menu.Length - 1;
+                menuNum = menu.Length - 1;
             }
         }
 
         if ((menuNum ^ previousMenuNum) != 0)
         {
-            Menu[menuNum].GetComponent<Text>().fontSize = selectMenuSize;
-            Menu[previousMenuNum].GetComponent<Text>().fontSize = baseMenuSize;
+            menu[menuNum].GetComponent<Text>().fontSize = selectMenuSize;
+            menu[previousMenuNum].GetComponent<Text>().fontSize = baseMenuSize;
         }
     }
 }

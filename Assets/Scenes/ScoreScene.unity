@@ -1251,6 +1251,7 @@ GameObject:
   - component: {fileID: 2013448579}
   - component: {fileID: 2013448581}
   - component: {fileID: 2013448580}
+  - component: {fileID: 2013448578}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1258,6 +1259,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2013448578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013448577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57304f3c636e7bb4c81b96b92033f78c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectMenuSize: 50
+  baseMenuSize: 30
+  menu: []
+  sceneNames: []
 --- !u!4 &2013448579
 Transform:
   m_ObjectHideFlags: 0
@@ -1295,7 +1312,6 @@ MonoBehaviour:
   - {fileID: 2095776100}
   - {fileID: 683821081}
   - {fileID: 1675218431}
-  mainSceneName: MaintitleScene
 --- !u!114 &2013448581
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -311,20 +311,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: F:\Codes\Unity\Quadris
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 9a3a0000
-    m_LastClickedID: 15002
-    m_ExpandedIDs: 000000008e3a000000ca9a3b
+    m_SelectedIDs: 9c3a0000
+    m_LastClickedID: 15004
+    m_ExpandedIDs: 000000008e3a00009e3a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -475,9 +475,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 7439000076390000783900007a3900007c3900007e39000080390000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 5efbfffff03800003e390000
+      m_SelectedIDs: ee480000
+      m_LastClickedID: 18670
+      m_ExpandedIDs: 94f0ffff1cf7ffffa8faffff5efbffffde3a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -537,9 +537,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.288047, y: 8.331375, z: -8.652344}
+    m_Target: {x: 5.2048883, y: 6.492793, z: 87.749344}
     speed: 2
-    m_Value: {x: 5.288047, y: 8.331375, z: -8.652344}
+    m_Value: {x: 5.642145, y: 6.8053217, z: 85.1339}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -589,9 +589,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 12.618394
+    m_Target: 13.511347
     speed: 2
-    m_Value: 12.618394
+    m_Value: 12.929519
   m_Ortho:
     m_Target: 1
     speed: 2

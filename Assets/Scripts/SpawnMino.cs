@@ -8,6 +8,13 @@ public class SpawnMino : MonoBehaviour
     public GameObject previewPoint;
     public GameObject spawnPoint;
 
+    private GameOver gameOver;
+
+    private void Awake()
+    {
+        gameOver = FindObjectOfType<GameOver>();
+    }
+
     public void SpawnPreviewMino()
     {
         GameObject mino = Instantiate(minos[Random.Range(0, minos.Length)], previewPoint.transform.position, Quaternion.identity, previewPoint.transform);
@@ -20,18 +27,11 @@ public class SpawnMino : MonoBehaviour
 
         if (!mino.GetComponent<ActionMino>().IsValidMove())
         {
-            FindObjectOfType<GameOver>().ProcessGameover();
+            gameOver.ProcessGameover();
             return;
         }
 
         mino.GetComponent<ActionMino>().enabled = true;
         mino.SetParent(spawnPoint.transform);
     }
-
-    void bagMino()
-    {
-
-    }
-
-
 }

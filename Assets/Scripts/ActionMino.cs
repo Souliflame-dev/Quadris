@@ -14,6 +14,17 @@ public class ActionMino : MonoBehaviour
 
     private float previousTime = 0;
 
+    private GameLevel gameLevel;
+    private SpawnMino spawnMino;
+    private Scoring scoring;
+
+    private void Awake()
+    {
+        gameLevel = FindObjectOfType<GameLevel>();
+        spawnMino = FindObjectOfType<SpawnMino>();
+        scoring = FindObjectOfType<Scoring>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -39,8 +50,8 @@ public class ActionMino : MonoBehaviour
             }
         }
 
-        int level = FindObjectOfType<GameLevel>().level;
-        if (Time.time - previousTime > fallTimes[level] / FindObjectOfType<GameLevel>().level || Input.GetKeyDown(KeyCode.DownArrow))
+        int level = gameLevel.level;
+        if (Time.time - previousTime > fallTimes[level] / gameLevel.level || Input.GetKeyDown(KeyCode.DownArrow))
         {
             transform.position += new Vector3(0, -1, 0);
             if (!IsValidMove())
@@ -130,10 +141,10 @@ public class ActionMino : MonoBehaviour
         addToGrid();
         checkForLines();
         this.enabled = false;
-        FindObjectOfType<GameLevel>().movesCount++;
-        FindObjectOfType<GameLevel>().CheckLevelThreshold();
-        FindObjectOfType<SpawnMino>().MoveMinoToSpawnPoint();
-        FindObjectOfType<SpawnMino>().SpawnPreviewMino();
+        gameLevel.movesCount++;
+        gameLevel.CheckLevelThreshold();
+        spawnMino.MoveMinoToSpawnPoint();
+        spawnMino.SpawnPreviewMino();
     }
 
     void addToGrid()
@@ -159,7 +170,7 @@ public class ActionMino : MonoBehaviour
                 scoringRowCount++;
             }
         }
-        FindObjectOfType<Scoring>().UpdateScore(scoringRowCount);
+        scoring.UpdateScore(scoringRowCount);
     }
 
     bool hasLine(int i)

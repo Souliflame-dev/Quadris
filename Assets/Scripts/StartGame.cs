@@ -6,6 +6,15 @@ public class StartGame : MonoBehaviour
 {
     public GameObject startText;
 
+    private SpawnMino spawnMino;
+    private GameLevel gameLevel;
+
+    private void Awake()
+    {
+        spawnMino = FindObjectOfType<SpawnMino>();
+        gameLevel = FindObjectOfType<GameLevel>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -15,13 +24,13 @@ public class StartGame : MonoBehaviour
         }
     }
 
-    void startGame()
+    private void startGame()
     {
         startText.SetActive(false);
-        FindObjectOfType<SpawnMino>().SpawnPreviewMino();
-        FindObjectOfType<SpawnMino>().MoveMinoToSpawnPoint();
-        FindObjectOfType<SpawnMino>().SpawnPreviewMino();
-        FindObjectOfType<GameLevel>().CheckLevelThreshold();
+        spawnMino.SpawnPreviewMino();
+        spawnMino.MoveMinoToSpawnPoint();
+        spawnMino.SpawnPreviewMino();
+        gameLevel.CheckLevelThreshold();
         enabled = false;
     }
 }

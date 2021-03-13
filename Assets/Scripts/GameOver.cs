@@ -13,8 +13,8 @@ public class GameOver : MonoBehaviour
 
     private void Awake()
     {
-        scoring = FindObjectOfType<Scoring>();
-        handleScoreFile = FindObjectOfType<HandleScorefile>();
+        scoring = GetComponent<Scoring>();
+        handleScoreFile = GetComponent<HandleScorefile>();
     }
 
     // Update is called once per frame

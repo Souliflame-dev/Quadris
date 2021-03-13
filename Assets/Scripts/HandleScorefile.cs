@@ -50,18 +50,18 @@ public class HandleScorefile : MonoBehaviour
     {
         int[] scoreData = new int[SCORE_COUNT];
 
-        if (!VerifyValidFile(scoreData))
+        if (!verifyValidFile(scoreData))
         {
             Debug.Log($"{PATH}: Has wrong data, create new");
             createScorefile();
-            VerifyValidFile(scoreData);
+            verifyValidFile(scoreData);
         }
 
         Debug.Log("SUCCESS: Load score data");
         return scoreData;
     }
 
-    public bool VerifyValidFile(int[] scoreData)
+    private bool verifyValidFile(int[] scoreData)
     {
         if (!File.Exists(PATH))
         {

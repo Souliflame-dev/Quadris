@@ -39,7 +39,7 @@ public class MoveMenu : MonoBehaviour
         }
     }
 
-    void moveMenu()
+    private void moveMenu()
     {
         int previousMenuNum = menuNum;
 

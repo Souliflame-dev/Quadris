@@ -12,7 +12,7 @@ public class SpawnMino : MonoBehaviour
 
     private void Awake()
     {
-        gameOver = FindObjectOfType<GameOver>();
+        gameOver = GetComponent<GameOver>();
     }
 
     public void SpawnPreviewMino()

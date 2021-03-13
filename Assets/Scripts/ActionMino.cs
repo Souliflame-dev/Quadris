@@ -31,7 +31,28 @@ public class ActionMino : MonoBehaviour
         moveMino();
     }
 
-    void moveMino()
+    public bool IsValidMove()
+    {
+        foreach (Transform children in transform)
+        {
+            int x = Mathf.RoundToInt(children.position.x);
+            int y = Mathf.RoundToInt(children.position.y);
+
+            if (x < 0 || x >= GRID_WIDTH || y < 0 || y >= GRID_HEIGHT)
+            {
+                return false;
+            }
+
+            if (GRID[x, y] != null)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void moveMino()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -115,28 +136,8 @@ public class ActionMino : MonoBehaviour
             }
         }
     }
-    public bool IsValidMove()
-    {
-        foreach (Transform children in transform)
-        {
-            int x = Mathf.RoundToInt(children.position.x);
-            int y = Mathf.RoundToInt(children.position.y);
 
-            if (x < 0 || x >= GRID_WIDTH || y < 0 || y >= GRID_HEIGHT)
-            {
-                return false;
-            }
-
-            if (GRID[x, y] != null)
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    void checkGrid()
+    private void checkGrid()
     {
         addToGrid();
         checkForLines();
@@ -147,7 +148,7 @@ public class ActionMino : MonoBehaviour
         spawnMino.SpawnPreviewMino();
     }
 
-    void addToGrid()
+    private void addToGrid()
     {
         foreach (Transform children in transform)
         {
@@ -158,7 +159,7 @@ public class ActionMino : MonoBehaviour
         }
     }
 
-    void checkForLines()
+    private void checkForLines()
     {
         int scoringRowCount = 0;
         for (int i = GRID_HEIGHT - 1; i >= 0; --i)
@@ -173,7 +174,7 @@ public class ActionMino : MonoBehaviour
         scoring.UpdateScore(scoringRowCount);
     }
 
-    bool hasLine(int i)
+    private bool hasLine(int i)
     {
         for (int j = 0; j < GRID_WIDTH; ++j)
         {
@@ -185,7 +186,7 @@ public class ActionMino : MonoBehaviour
         return true;
     }
 
-    void deleteLine(int i)
+    private void deleteLine(int i)
     {
         for (int j = 0; j < GRID_WIDTH; ++j)
         {
@@ -194,7 +195,7 @@ public class ActionMino : MonoBehaviour
         }
     }
 
-    void rowDown(int i)
+    private void rowDown(int i)
     {
         for (int y = i; y < GRID_HEIGHT; y++)
         {

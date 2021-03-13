@@ -11,8 +11,8 @@ public class StartGame : MonoBehaviour
 
     private void Awake()
     {
-        spawnMino = FindObjectOfType<SpawnMino>();
-        gameLevel = FindObjectOfType<GameLevel>();
+        spawnMino = GetComponent<SpawnMino>();
+        gameLevel = GetComponent<GameLevel>();
     }
 
     // Update is called once per frame

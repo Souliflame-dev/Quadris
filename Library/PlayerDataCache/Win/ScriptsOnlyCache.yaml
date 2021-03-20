@@ -12,7 +12,6 @@ ScriptsOnlyBuild:
     - Scoring
     - SpawnMino
     - StartGame
-    - SwitchScenes
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
@@ -119,8 +118,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12190}
     - Class: 114
-      Script: {instanceID: 13352}
-    - Class: 114
       Script: {instanceID: 13650}
     - Class: 114
       Script: {instanceID: 13662}
@@ -214,6 +211,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12230}
     - Class: 114
       Script: {instanceID: 12970}
+    - Class: 114
+      Script: {instanceID: 13650}
     - Class: 114
       Script: {instanceID: 13662}
     - Class: 114
@@ -449,7 +448,7 @@ ScriptsOnlyBuild:
     className: SpawnMino
   - hash:
       serializedVersion: 2
-      Hash: e660ae0f850066fa67676d85984696cf
+      Hash: e4baafd0c182df23c2ea526df726b849
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ActionMino
@@ -575,7 +574,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 52ab7d19b7de550e56a7781d6a7c985a
+      Hash: 322168da4c445161e199784f5bb625ec
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScoreUI
@@ -665,7 +664,7 @@ ScriptsOnlyBuild:
     className: AudioTrack
   - hash:
       serializedVersion: 2
-      Hash: a96504442b4fbfeca8345053aab58eb3
+      Hash: 4c0fe1f66231db29c1ab483ad0522ee4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MoveMenu
@@ -689,7 +688,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: 80cc3780f4886aa420d5b2fa5c4e40bb
+      Hash: 68103234c43eb15e2c16e6b3b740cf4b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameLevel

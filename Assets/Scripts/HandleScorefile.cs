@@ -15,14 +15,14 @@ public class HandleScorefile : MonoBehaviour
         int[] scoreData = LoadScoreData();
         bool isChanged = false;
 
-        int temp;
         for (int i = 0; i < scoreData.Length; ++i)
         {
             if (scoreData[i] < score)
             {
-                temp = scoreData[i];
-                scoreData[i] = score;
-                score = temp;
+                scoreData[i] ^= score;
+                score ^= scoreData[i];
+                scoreData[i] ^= score;
+
                 isChanged = true;
             }
         }

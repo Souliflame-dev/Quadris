@@ -8,9 +8,9 @@ public class ActionMino : MonoBehaviour
     private static int GRID_WIDTH = 10;
     private static Transform[,] GRID = new Transform[GRID_WIDTH, GRID_HEIGHT];
 
-    public Vector3 rotatePoint;
     public int minoLength = 4;
-    public float[] fallTimes = new float[20];
+
+    public Vector3 rotatePoint;
 
     private float previousTime = 0;
 
@@ -72,7 +72,7 @@ public class ActionMino : MonoBehaviour
         }
 
         int level = gameLevel.level;
-        if (Time.time - previousTime > fallTimes[level] / gameLevel.level || Input.GetKeyDown(KeyCode.DownArrow))
+        if (Time.time - previousTime > gameLevel.fallTimes[level] || Input.GetKeyDown(KeyCode.DownArrow))
         {
             transform.position += new Vector3(0, -1, 0);
             if (!IsValidMove())
@@ -197,7 +197,7 @@ public class ActionMino : MonoBehaviour
 
     private void rowDown(int i)
     {
-        for (int y = i; y < GRID_HEIGHT; y++)
+        for (int y = i + 1; y < GRID_HEIGHT; y++)
         {
             for (int x = 0; x < GRID_WIDTH; x++)
             {

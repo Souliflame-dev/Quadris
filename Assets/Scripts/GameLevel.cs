@@ -11,6 +11,7 @@ public class GameLevel : MonoBehaviour
     public int level = 0;
     public int[] movesCountThreshold = new int[MAX_LEVEL];
     public int[] scoreThreshold = new int[MAX_LEVEL];
+    public float[] fallTimes = new float[MAX_LEVEL];
 
     public GameObject levelText;
 
